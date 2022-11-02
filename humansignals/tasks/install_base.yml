@@ -1,0 +1,13 @@
+---
+
+  - name: Install required system packages
+    apt:
+      pkg:
+        - apt-transport-https
+        - ca-certificates
+        - curl
+        - software-properties-common
+        - lsb-release
+        - gnupg
+      state: latest
+      update_cache: true
