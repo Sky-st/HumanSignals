@@ -1,5 +1,5 @@
 - name: Install HumanSignals server
   hosts: all
-  become: yes
+  become: no
   roles:
     - humansignals

@@ -5,4 +5,9 @@
 #- include_tasks: install_docker.yml
 #- include_tasks: install_caddy.yml
 #- include_tasks: install_kubectl.yml
-- include_tasks: install_minikube.yml
+#- include_tasks: install_minikube.yml
+#- include_tasks: install_helm.yml
+#- include_tasks: cr_minikube_service.yml
+#- include_tasks: start_minikube.yml
+#- include_tasks: install_humansignals.yml
+- include_tasks: configure_caddy.yml

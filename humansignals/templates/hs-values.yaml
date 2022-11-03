@@ -1,0 +1,8 @@
+cloud: other
+
+env:
+  - name: TRUST_ALL_PROXIES
+    value: "1"
+
+ingress:
+  hostname: {{ DOMAIN_NAME }}

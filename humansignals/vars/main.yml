@@ -1,2 +1,6 @@
 ---
 # vars file for humansignals
+DOMAIN_NAME: humansignals.tmp
+K8S_IP: 0.0.0.0
+K8S_VER: kubernetes-version=v1.24.7
+HS_CHART: https://posthog.github.io/charts-clickhouse/
