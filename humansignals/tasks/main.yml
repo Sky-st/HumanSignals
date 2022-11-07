@@ -1,3 +1,4 @@
+# Как можно оптимизировать?
 - include_tasks: install_base.yml
 - include_tasks: install_docker.yml
 - include_tasks: install_caddy.yml

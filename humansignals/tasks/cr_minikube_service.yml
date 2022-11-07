@@ -1,8 +1,10 @@
+# Зачем в начале src использовать templates/?
 - name: Create minikube service
   template:
     src: templates/minikube.service
     dest: /etc/systemd/system/minikube.service
 
+# Используй handlers
 - name: enable service in systemd
   systemd:
     name: minikube.service

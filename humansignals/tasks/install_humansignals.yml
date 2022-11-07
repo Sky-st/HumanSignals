@@ -1,9 +1,11 @@
+# Как избавиться от block? Зачем?
 - block:
     - name: Create values file
       template:
         src: hs-values.yaml
         dest: hs-values.yaml
 
+    # Стоит ли использовать command? Почему не FQCN?
     - name: Add humansignals to helm repo
       command: "helm repo add posthog {{ HS_CHART }} "
 
@@ -13,6 +15,7 @@
     - name: Install humansignals
       shell: "helm upgrade --install -f hs-values.yaml --timeout 30m --create-namespace --namespace posthog posthog posthog/posthog --wait --wait-for-jobs --debug"
 
+    # Опять шелл. Избавься.
     - name: Patch configmap
       shell: >-
         kubectl -n ingress-nginx patch configmap ingress-nginx-controller -p '{"data":{"use-forwarded-headers": "true"}}'

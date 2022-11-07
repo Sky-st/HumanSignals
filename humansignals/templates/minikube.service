@@ -9,6 +9,7 @@ Type=oneshot
 RemainAfterExit=yes
 ExecStart=/usr/bin/minikube start --addons=ingress --memory=max --cpus=max --{{ K8S_VER }}
 ExecStop=/usr/bin/minikube stop
+# Точно ansible_user? Не юзер миникуба?
 User={{ ansible_user }}
 Group={{ ansible_user }}
 

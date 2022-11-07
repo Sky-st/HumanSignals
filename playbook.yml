@@ -1,5 +1,5 @@
 - name: Install HumanSignals server
   hosts: all
-  become: yes
+  become: yes # become нужен всему плейбуку или только определённым сущностям?
   roles:
     - humansignals

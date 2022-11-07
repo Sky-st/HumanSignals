@@ -1,6 +1,10 @@
+# Придумай как избавиться от шелла
+# Если ты используешь K8S_VER в других местах, то почему тут не используешь?
 - name: start minikube from another shell
   shell: su - {{ ansible_user }} -c "minikube start --addons=ingress --memory=max --cpus=max --kubernetes-version=v1.24.7"
 
+# Как избавиться от ожидания?
+# HINT: systemctl start *service name*
 - name: Wait for 1 minute to start minikube services
   pause:
     minutes: 1
