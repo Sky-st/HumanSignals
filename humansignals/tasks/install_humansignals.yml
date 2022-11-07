@@ -1,19 +1,22 @@
 ---
+  - block:
 
-  - name: Create values file
-    template:
-      src: hs-values.yaml
-      dest: hs-values.yaml
-  
-  - name: Add humansignals to helm repo
-    command: "helm repo add posthog {{ HS_CHART }} "
+    - name: Create values file
+      template:
+        src: hs-values.yaml
+        dest: hs-values.yaml
+    
+    - name: Add humansignals to helm repo
+      command: "helm repo add posthog {{ HS_CHART }} "
 
-  - name: Update helm repo
-    command: "helm repo update"
+    - name: Update helm repo
+      command: "helm repo update"
 
-  - name: Install humansignals
-    shell: "helm upgrade --install -f hs-values.yaml --timeout 30m --create-namespace --namespace posthog posthog posthog/posthog --wait --wait-for-jobs --debug"
+    - name: Install humansignals
+      shell: "helm upgrade --install -f hs-values.yaml --timeout 30m --create-namespace --namespace posthog posthog posthog/posthog --wait --wait-for-jobs --debug"
 
-  - name: Patch configmap
-    shell: >-
-      kubectl -n ingress-nginx patch configmap ingress-nginx-controller -p '{"data":{"use-forwarded-headers": "true"}}'  
+    - name: Patch configmap
+      shell: >-
+        kubectl -n ingress-nginx patch configmap ingress-nginx-controller -p '{"data":{"use-forwarded-headers": "true"}}'  
+
+    become: no

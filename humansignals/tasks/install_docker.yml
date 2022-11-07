@@ -15,9 +15,7 @@
     apt:
       name:
         - docker-ce
-        - docker.io
         - docker-ce-cli
-        - containerd.io 
       state: latest
       update_cache: true
 

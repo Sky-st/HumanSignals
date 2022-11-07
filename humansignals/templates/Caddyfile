@@ -1,0 +1,5 @@
+{{ DOMAIN_NAME }} {
+    tls internal
+    reverse_proxy {{ K8S_IP.stdout  }}
+}
+
