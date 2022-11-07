@@ -1,3 +1,6 @@
+# TODO(ls): All variables should be named using only lowercase and underscores
+# TODO(ls): Move vars from vars/ to default/
+# TODO(grantral): Change HS_CHART to HumanSignals Helm Chart
 DOMAIN_NAME: humansignals.tmp
 K8S_IP: 0.0.0.0
 K8S_VER: kubernetes-version=v1.24.7
