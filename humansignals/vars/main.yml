@@ -2,6 +2,6 @@
 # TODO(ls): Move vars from vars/ to default/
 # TODO(grantral): Change HS_CHART to HumanSignals Helm Chart
 DOMAIN_NAME: demo.humansignals.ru
-K8S_IP: 0.0.0.0
-K8S_VER: kubernetes-version=v1.24.7
-HS_CHART: https://posthog.github.io/charts-clickhouse/
+K8S_IP: 0.0.0.0 # Что будет, если поменять IP?
+K8S_VER: kubernetes-version=v1.24.7 # Насколько в переменной окружения, которая задаёт версию, нужно использовать `kubernetes-version=`?
+HS_CHART: https://posthog.github.io/charts-clickhouse/ # Зачем клиенту (юзеру) менять URL до чарта?
