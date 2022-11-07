@@ -15,7 +15,7 @@
     name:
       - docker-ce
       - docker-ce-cli
-    state: latest
+    state: present
     update_cache: true
 
 - name: Add user to docker group

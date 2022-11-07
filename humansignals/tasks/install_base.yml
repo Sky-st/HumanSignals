@@ -7,5 +7,5 @@
       - software-properties-common
       - lsb-release
       - gnupg
-    state: latest
+    state: present
     update_cache: true

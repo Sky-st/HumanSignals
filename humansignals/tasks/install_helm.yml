@@ -14,5 +14,5 @@
   apt:
     name:
       - helm
-    state: latest
+    state: present
     update_cache: true

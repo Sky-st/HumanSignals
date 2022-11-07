@@ -15,5 +15,5 @@
   apt:
     name:
       - caddy
-    state: latest
+    state: present
     update_cache: true
