@@ -5,7 +5,7 @@
       register: K8S_IP
 
     - name: Create Caddyfile
-      become: yes
+      become: true
       template:
         src: templates/Caddyfile
         dest: /etc/caddy/Caddyfile
@@ -13,4 +13,4 @@
     - name: Reload Caddy
       command: caddy reload --config /etc/caddy/Caddyfile
 
-  become: no
+  become: false

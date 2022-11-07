@@ -17,4 +17,4 @@
       shell: >-
         kubectl -n ingress-nginx patch configmap ingress-nginx-controller -p '{"data":{"use-forwarded-headers": "true"}}'
 
-  become: no
+  become: false
