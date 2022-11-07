@@ -1,8 +1,6 @@
----
+- name: start minikube from another shell
+  shell: su - {{ ansible_user }} -c "minikube start --addons=ingress --memory=max --cpus=max --kubernetes-version=v1.24.7"
 
-  - name: start minikube from another shell
-    shell: su - {{ ansible_user }} -c "minikube start --addons=ingress --memory=max --cpus=max --kubernetes-version=v1.24.7"
-
-  - name: Wait for 1 minute to start minikube services
-    pause:
-      minutes: 1
+- name: Wait for 1 minute to start minikube services
+  pause:
+    minutes: 1

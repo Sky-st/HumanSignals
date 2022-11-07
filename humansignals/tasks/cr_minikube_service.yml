@@ -1,13 +1,10 @@
----
+- name: Create minikube service
+  template:
+    src: templates/minikube.service
+    dest: /etc/systemd/system/minikube.service
 
-  - name: Create minikube service
-    template:
-      src: templates/minikube.service
-      dest: /etc/systemd/system/minikube.service
-
-  - name: enable service in systemd
-    systemd:
-      name: minikube.service
-      enabled: yes
-      daemon_reload: yes
-
+- name: enable service in systemd
+  systemd:
+    name: minikube.service
+    enabled: yes
+    daemon_reload: yes

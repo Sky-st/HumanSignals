@@ -1,11 +1,9 @@
----
-  - block:
-
+- block:
     - name: Create values file
       template:
         src: hs-values.yaml
         dest: hs-values.yaml
-    
+
     - name: Add humansignals to helm repo
       command: "helm repo add posthog {{ HS_CHART }} "
 
@@ -17,6 +15,6 @@
 
     - name: Patch configmap
       shell: >-
-        kubectl -n ingress-nginx patch configmap ingress-nginx-controller -p '{"data":{"use-forwarded-headers": "true"}}'  
+        kubectl -n ingress-nginx patch configmap ingress-nginx-controller -p '{"data":{"use-forwarded-headers": "true"}}'
 
-    become: no
+  become: no

@@ -5,4 +5,4 @@ env:
     value: "1"
 
 ingress:
-  hostname: {{ DOMAIN_NAME }}
+  hostname: "{{ DOMAIN_NAME }}"
