@@ -9,11 +9,32 @@
     - name: Add humansignals to helm repo
       command: "helm repo add posthog {{ HS_CHART }} "
 
+    - name: Add humansignals chart repo
+      kubernetes.core.helm_repository:
+        name: humansignals
+        repo_url: {{ HS_CHART }}
+
     - name: Update helm repo
       command: "helm repo update"
 
     - name: Install humansignals
       shell: "helm upgrade --install -f hs-values.yaml --timeout 30m --create-namespace --namespace posthog posthog posthog/posthog --wait --wait-for-jobs --debug"
+
+    - name: Deploy latest version of Grafana chart inside monitoring namespace with values
+      kubernetes.core.helm:
+        name: humansignals
+        chart_ref: posthog/posthog
+        release_namespace: humansignals
+        values:
+          cloud: other
+          env:
+            - name: TRUST_ALL_PROXIES
+              value: "1"
+          ingress:
+            hostname: "{{ DOMAIN_NAME }}"
+        values_files:
+          - /path/to/values.yaml
+
 
     # Опять шелл. Избавься.
     - name: Patch configmap

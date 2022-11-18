@@ -23,5 +23,10 @@
     name: "{{ ansible_user }}"
     append: yes
     groups: docker
+
 - name: Kill own ssh connections
   ansible.builtin.meta: reset_connection
+
+- hosts: all
+  roles:
+    - geerlingguy.docker
