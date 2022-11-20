@@ -1,5 +1,9 @@
 - name: Install HumanSignals server
   hosts: all
-  become: yes # become нужен всему плейбуку или только определённым сущностям?
+  become: true
   roles:
+ #   - geerlingguy.docker
+ #   - githubixx.kubectl
+ #   - gantsign.minikube
+ #   - geerlingguy.helm
     - humansignals

@@ -1,7 +1,21 @@
 # TODO(ls): All variables should be named using only lowercase and underscores
 # TODO(ls): Move vars from vars/ to default/
-# TODO(grantral): Change HS_CHART to HumanSignals Helm Chart
-DOMAIN_NAME: demo.humansignals.ru
-K8S_IP: 0.0.0.0 # Что будет, если поменять IP?
-K8S_VER: kubernetes-version=v1.24.7 # Насколько в переменной окружения, которая задаёт версию, нужно использовать `kubernetes-version=`?
-HS_CHART: https://posthog.github.io/charts-clickhouse/ # Зачем клиенту (юзеру) менять URL до чарта?
+# TODO(grantral): Change hs_chart to HumanSignals Helm Chart
+domain_name: demo.humansignals.ru
+k8s_ver: 1.24.7 # Насколько в переменной окружения, которая задаёт версию, нужно использовать `kubernetes-version=`?
+hs_chart: https://posthog.github.io/charts-clickhouse/ # Зачем клиенту (юзеру) менять URL до чарта?
+
+docker_edition: 'ce'
+docker_packages:
+    - "docker-{{ docker_edition }}"
+    - "docker-{{ docker_edition }}-cli"
+    - "docker-{{ docker_edition }}-rootless-extras"
+docker_packages_state: present
+docker_users:
+  - "{{ ansible_user }}"
+
+kubectl_version: "1.24.7"
+kubectl_download_filetype: "binary"
+kubectl_checksum_binary: "sha512:3791509b560d23b92739c6c0576fe0919dd95ce03fc80aa37edbfda84d1477833f2379ae96b356febdbefb58cb20461cd8480efdb07cc21654fac95a02aa85af"
+
+minikube_install_dir: "/usr/local/bin"

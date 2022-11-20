@@ -1,0 +1,10 @@
+# Install a role from the Ansible Galaxy
+roles:
+- src: geerlingguy.docker
+- src: githubixx.kubectl
+- src: gantsign.minikube
+- src: geerlingguy.helm
+
+collections:
+  - name: kubernetes.core
+#- src: kubernetes.core.helm_repository

@@ -2,7 +2,7 @@
     - name: Get K8S ip
       command: >-
         kubectl -n posthog get ingress -o jsonpath='{.items[0].status.loadBalancer.ingress[0].ip}'
-      register: K8S_IP
+      register: k8s_ip
 
     - name: Create Caddyfile
       become: true

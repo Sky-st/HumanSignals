@@ -7,8 +7,8 @@ Requires=docker.socket containerd.service docker.service
 [Service]
 Type=oneshot
 RemainAfterExit=yes
-ExecStart=/usr/bin/minikube start --addons=ingress --memory=max --cpus=max --{{ K8S_VER }}
-ExecStop=/usr/bin/minikube stop
+ExecStart={{ minikube_install_dir }}/minikube start --addons=ingress --memory=max --cpus=max --kubernetes-version=v{{ k8s_ver }}
+ExecStop={{ minikube_install_dir }}/minikube stop
 # Точно ansible_user? Не юзер миникуба?
 User={{ ansible_user }}
 Group={{ ansible_user }}
