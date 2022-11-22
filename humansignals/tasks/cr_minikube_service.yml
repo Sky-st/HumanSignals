@@ -1,10 +1,8 @@
-# Зачем в начале src использовать templates/?
 - name: Create minikube service
   template:
     src: minikube.service
     dest: /etc/systemd/system/minikube.service
 
-# Используй handlers
 - name: enable service in systemd
   ansible.builtin.systemd:
     name: minikube.service

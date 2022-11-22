@@ -4,20 +4,16 @@
       template:
         src: hs-values.yaml
         dest: hs-values.yaml
-    # Стоит ли использовать command? Почему не FQCN?
+
     - name: Add humansignals to helm repo
-      #command: "helm repo add posthog {{ hs_chart }} "
       kubernetes.core.helm_repository:
         name: humansignals
         repo_url: "{{ hs_chart }}"
 
-#    - name: Update helm repo
-#      command: "helm repo update"
-
     - name: Install humansignals
       kubernetes.core.helm: 
-        chart_repo_url:  "{{ hs_chart }}"
-        chart_ref: posthog
+#        chart_repo_url:  "{{ hs_chart }}"
+        chart_ref: humansignals/posthog
         values_files: hs-values.yaml
         create_namespace: yes    
         name: posthog

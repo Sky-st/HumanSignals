@@ -2,8 +2,8 @@
   hosts: all
   become: true
   roles:
- #   - geerlingguy.docker
- #   - githubixx.kubectl
- #   - gantsign.minikube
- #   - geerlingguy.helm
+    - geerlingguy.docker
+    - githubixx.kubectl
+    - gantsign.minikube
+    - geerlingguy.helm
     - humansignals
